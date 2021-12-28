@@ -1,0 +1,24 @@
+<?php
+include_once ("circle.php");
+include_once ("shape.php");
+include_once ("cilynder.php");
+include_once ("retangle.php");
+use  crile\Cricle;
+use retangle\Retangle;
+use cilynder\Cilynder;
+use circle\Circle;
+$hcn      = new Retangle("Retangle",20,15);
+$hv       = new Retangle("hình vuông",10,10);
+$cilynder = new Cilynder("Cilynder",13,25);
+$Cricle   = new Circle("Cricle",12);
+$tonghophinh = [];
+$tonghophinh[]=$hcn;
+$tonghophinh[]=$hv;
+$tonghophinh[]=$cilynder;
+$tonghophinh[]=$Cricle;
+echo "<pre>";
+print_r($tonghophinh);
+echo "</pre>";
+echo "<hr>";
+echo "diện tích hình vuông là " . $hv->getchuvi() ."<br>";
+echo "diện tích hình chữ nhật là " . $hcn->getchuvi() ."<br>";

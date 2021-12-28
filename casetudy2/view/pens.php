@@ -1,0 +1,40 @@
+<?php
+include_once "product.php";
+use Product\Product;
+$products               = [];
+
+$coLorFulPen            =   new Product;
+$coLorFulPen->image     = "https://salt.tikicdn.com/ts/tmp/5d/30/07/c5532f5eeb90f5a30acba3b0759ef6f3.jpg";
+$coLorFulPen->name      = " bút bi nước cute nhiều màu kèm túi";
+$coLorFulPen->note      = "Set 20 bút bi nước cute nhiều màu nhiều mẫu kèm túi";
+$coLorFulPen->price     = 48000;
+$penBlue                =   new Product;
+$penBlue->image         = "https://cf.shopee.vn/file/d4d5a93328d516bd69e20d2dec12bf13";
+$penBlue->name          = "BÚT BI MỰC XANH";
+$penBlue->note          = "BÚT BI MỰC XANH ÁNH SÁNG MS B33 ĐẦU BI";
+$penBlue->price         = 20000;
+$penMachine             = new Product;
+$penMachine->image      = "https://butpicasso.com/wp-content/uploads/2018/09/but-may-picasso-915-FR-6.jpg";
+$penMachine->name       = "Bút Máy";
+$penMachine->note       = "Bút Máy Cao Cấp";
+$penMachine->price      = 150000;
+$penThienLong           = new Product;
+$penThienLong->name     = "Bút Thiên long";
+$penThienLong->price    = 62000;
+$penThienLong->image    = "https://product.hstatic.net/1000362139/product/but_tl0271_428e9bcba72a48b7a12ca7d3a3821971.jpg";
+$penThienLong->note     = "một hộp 20 ngòi viết đã tay";
+$penTiZo                = new Product;
+$penTiZo->name          = "Bút Nước Ti ZO";
+$penTiZo->image         = "https://bizweb.dktcdn.net/thumb/1024x1024/100/384/619/products/3642016tizo-tg310-minh-duc-jpeg.jpg?v=1587359145993";
+$penTiZo->price         = 4000;
+$penTiZo->note          = "1 ngòi viết đã tay";
+$pens                   = [];
+$pens[]                 = $penTiZo;
+$pens[]                 = $penThienLong;
+$pens[]                 = $penMachine;
+$pens[]                 = $penBlue;
+$pens[]                 = $coLorFulPen;
+echo "<pre>";
+print_r($pens);
+echo "</pre>";
+

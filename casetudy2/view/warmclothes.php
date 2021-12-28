@@ -1,0 +1,38 @@
+<?php
+include_once "product.php";
+use Product\Product;
+$warm_Clothes                  = new Product;
+$warm_Clothes->name            = "Áo ấm";
+$warm_Clothes->image           = "https://cf.shopee.vn/file/66d924dc2a84ea9a62273c5c59c15042";
+$warm_Clothes->price           = 360.000;
+$warm_Clothes->note            = "áo ấm chắc chắn long cừu";
+$wind_BreaKer                  = new Product;
+$wind_BreaKer->image           = "http://product.hstatic.net/1000330153/product/ao-khoac-kaki-2-l_p-day-dan-cjak01-mau-be-be_grande.png";
+$wind_BreaKer->name            = "Áo Khoác KaKI ";
+$wind_BreaKer->price           = 589.000 ";
+$wind_BreaKer->note            = "áo đẹp 2 màu 2 phong cách ";
+$leather_JacKet                = new Product;
+$leather_JacKet->name          = "Áo Da";
+$leather_JacKet->image         = "https://ae01.alicdn.com/kf/H04e27e87c21d491091b920d6e8dd6e34W/S-6XL-nam-Da-Th-t-Ch-nh-H-ng-Da-o-Kho-c-Da-Heo.jpg_Q90.jpg_.webp";
+$leather_JacKet->price         = 3.000.000;
+$leather_JacKet->note          = "áo da chính hãng 100%";
+$warm_Clothes_one              = new Product;
+$warm_Clothes_one->image       = "https://media3.scdn.vn/img2/2018/8_15/USc7aI_simg_de2fe0_500x500_maxb.jpg";
+$warm_Clothes_one->name        = "Áo ấm Chất Chơi";
+$warm_Clothes_one->price       = 700.00;
+$warm_Clothes_one->note        = "Áo ấm chuẩn men chất lượng đẳng cấp";
+$leather_JacKet_1              = new Product;
+$leather_JacKet_1->name        = "Áo da bò cổ bẻ công";
+$leather_JacKet_1->image       = "https://aodacaocap.net/wp-content/uploads/2019/07/o-da-th%E1%BA%ADt-1.jpg";
+$leather_JacKet_1->price       = 6.000.000;
+$leather_JacKet_1->note        = "áo da bò chất của chất chuẩn men";
+$warm_ClotheSs                 = [];
+$warm_ClotheSs[]                 = $warm_Clothes_one;
+$warm_ClotheSs[]                 = $leather_JacKet_1;
+$warm_ClotheSs[]                 = $wind_BreaKer ;
+$warm_ClotheSs[]                 = $warm_Clothes ;
+$warm_ClotheSs[]                 = $leather_JacKet  ;
+echo "<pre>";
+print_r($warm_ClotheSs);
+echo "</pre>";
+
