@@ -1,56 +1,45 @@
 <?php
 namespace Controller;
-
+error_reporting(-1);
+ini_set('display_errors', 'On');
 include_once "./Models/Note.php";
 include_once "./Models/Category.php";
 use Models\Category;
+use Models\Model;
 use Models\Note;
+use stdClass;
 
 class HomeController{
    public function home()
    {
-       include_once "./Views/home/home.php";
-   }
-   public function createNote()
-   {
-        $objCategory = new Category();
-        $errors = [];
-        $categories = $objCategory->getAll();
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            // echo "<pre>";
-            // print_r($_REQUEST);
-            // echo "</pre>";
-            // Array
-            // (
-            //     [home] => create
-            //     [category_id] => 
-            //     [name_note] => 
-            //     [note_Content] => 
-            // )
-            $category_id  = $_REQUEST["category_id"];
-            $name_note    = $_REQUEST["name_note"];
-            $note_Content = $_REQUEST["note_Content"];
-            if($category_id == ""){
-                $errors["category_id"] ="bạn chưa nhập chủ đề của note";
-            }
-            if($name_note == ""){
-                $errors["name_note"] ="bạn chưa nhập tên của note";
-            }
-            if($note_Content == ""){
-                $errors["note_Content"] ="bạn chưa nhập nội dung của note";
-            }
-            if(count($errors) === 0){
-                  
-            }
+      
+        $objCategory = new Category;
+        $categories = $objCategory->getAll(); 
+        $noteModel  = new Note;
+        if(isset($_SESSION["user"]->id)){
 
+        $user_id    = $_SESSION["user"]->id;
 
+        }else{
 
-        }                              
-       include_once "./Views/home/creatNote.php";
+            $user_id = "";
+        }
+        if(empty($user_id)){
+            if( isset($_SESSION["noteUser"]))
+            {
+               $noteUser = $_SESSION["noteUser"];
+            }else{
+                $noteUser = [];
+            }
+           
+        }else{
+            $noteUser   = $noteModel->NoteUser($user_id);
+          
+        }
+       
+     
+        include_once "./Views/home/home.php";
    }
-   public function edit()
-   {
-       # code...
-   }
+   
 
 }
