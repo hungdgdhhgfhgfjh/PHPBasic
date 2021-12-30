@@ -1,3 +1,7 @@
+<?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+?>
 <div class="container">
     <div class="row justify-content-center">
         <h1 class="text-center mt-5 mb-5">Các ghi chú</h1>
@@ -13,16 +17,10 @@
                     <div class="col-3">
                         <select class="form-select" name="type_id">
                             <option value="">Thể loại</option>
-                            <?php // foreach ($param['types'] as $type) : 
-                            ?>
-                            <?php // if ($type->soft_delete == 0) : 
-                            ?>
-                            <option value="<?php // $type->id 
-                                            ?>"><?php // $type->name 
-                                                                    ?></option>
-                            <?php // endif; 
-                            ?>
-                            <?php // endforeach; 
+                            <?php foreach ($categories as $key => $category) :
+                            ?>      
+                                    <option value="<?php  $category->id ?>"><?php echo $category->name_categories; ?></option>
+                            <?php  endforeach;
                             ?>
                         </select>
                     </div>
@@ -43,63 +41,47 @@
                     <table class="table table-striped text-center table-bordered">
                         <tr>
                             <th>STT
-                                <a href="index.php?controller=note&action=sort_asc&column=id">
-                                    <i class="fa fa-fw fa-sort text-secondary"></i>
-                                </a>
+                            
                             </th>
                             <th>Tiêu đề
-                                <a href="index.php?controller=note&action=sort_asc&column=title">
-                                    <i class="fa fa-fw fa-sort text-secondary"> </i>
-                                </a>
                             </th>
                             <th>Phân loại
-                                <a href="index.php?controller=note&action=sort_asc&column=name">
-                                    <i class="fa fa-fw fa-sort text-secondary"></i>
-                                </a>
                             </th>
                             <th>Tác vụ</th>
                         </tr>
-                        <?php // foreach ($param['items'] as $key => $item) :   
+                        <?php if(count($noteUser) === 0): ?>
+                         <tr>
+                             <td colspan="4" ><b>chưa có</b></td>
+                        </tr>
+                            <?php endif; ?>
+                        <?php  foreach ($noteUser as $key => $note) :   
                         ?>
                         <tr>
                             <td>
-                                <?php // ++$key; 
+                                <?php echo ++$key; 
                                 ?>
                             </td>
                             <td>
-                                <?php  //$item->title 
+                                <?php echo  $note->name_note; 
                                 ?>
                             </td>
                             <td>
-                                <?php  //$item->name 
+                                <?php echo $note->name_categories;
                                 ?>
                             </td>
                             <td>
-                                <a href="index.php?controller=note&action=show&id=<?php // $item->id 
+                                <a href="index.php?home=show&&id=<?php echo $note->id;    
                                                                                     ?>"><i class="far fa-eye fa-lg text-primary"></i></a>
-                                <a href="index.php?controller=note&action=edit&id=<?php  //$item->id 
+                                <a href="index.php?note=edit&id=<?php echo  $note->id 
                                                                                     ?>"><i class="fas fa-edit fa-lg text-warning"></i></a>
-                                <span data-bs-toggle="modal" data-bs-target="#delete<?php //$item->id 
-                                                                                    ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></span>
+                                <a onclick="return confirm('bạn có muốn xóa') " href="index.php?note=deleteShow&id=<?php echo  $note->id 
+                                                                                    ?>">
+                                                                                    <i class="fas fa-trash-alt fa-lg text-danger"></i></span></a>
                                 <!-- The Modal -->
-                                <div class="modal fade" id="delete<?= $item->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <h3>Bạn có chắc chắn muốn xóa không ?</h3>
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <a class="btn btn-danger mr-auto" href="index.php?controller=note&action=delete&id=<?php // $item->id 
-                                                                                                                                    ?>">Xóa</a>
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                
                             </td>
                         </tr>
-                        <?php // endforeach; 
+                        <?php  endforeach; 
                         ?>
                     </table>
                 </div>

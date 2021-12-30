@@ -1,4 +1,8 @@
 <!-- Footer -->
+<?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+?>
 <footer class="text-center text-lg-start bg-light text-muted">
   <!-- Section: Social media -->
   <section

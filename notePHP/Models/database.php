@@ -1,12 +1,14 @@
 <?php
 namespace Models;
+error_reporting(-1);
+ini_set('display_errors', 'On');
 Use PDO;
 
 class Model {
 
     private $db_host = 'localhost';
     private $db_user = 'root';
-    private $db_pass = '';
+    private $db_pass = '123456';
     private $db_name = 'note';
     protected $_db;
     public function __construct()

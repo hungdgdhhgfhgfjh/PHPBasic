@@ -11,13 +11,13 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
-                    <input name="password" type="text" class="form-control" id="exampleInputPassword1">
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
                     <p class="alert-danger"><?= $_SESSION['errors']["password"] = (isset($_SESSION['errors']["password"])) ? $_SESSION['errors']["password"] : ""; ?></p>
                     <p class="alert-danger"><?= $_SESSION['errors']["checkPassword"] = (isset($_SESSION['errors']["checkPassword"])) ? $_SESSION['errors']["checkPassword"] : ""; ?></p>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                <button type="submit" class="btn btn-primary w-100">Gửi</button>
             </form>
         </div>
     </div>
 </div>
-<?php session_destroy(); ?>
+<?php unset($_SESSION["errors"]); ?>

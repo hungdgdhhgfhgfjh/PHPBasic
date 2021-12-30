@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,10 +31,9 @@
             <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
              <?= $_SESSION["user"]->name; ?>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <ul class="dropdown-menu btn btn-dark" style="background:black" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" style="color:white" href="index.php?users=show&&id=<?= $_SESSION["user"]->id;  ?>">Trang cá nhân</a></li>
+              <li><a class="dropdown-item" style="color:white" href="index.php?home=logout">Đăng xuất</a></li>
             </ul>
           </div>
         <?php else : ?>
